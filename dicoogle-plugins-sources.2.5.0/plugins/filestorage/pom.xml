@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>pt.ua.ieeta</groupId>
+	<artifactId>filestorage</artifactId>
+	<version>2.5.0</version>
+	<packaging>jar</packaging>
+
+	<name>filestorage</name>
+	<url>http://maven.apache.org</url>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <dicoogle-sdk.version>2.5.0</dicoogle-sdk.version>
+    </properties>
+
+    <parent>
+        <groupId>pt.ua.ieeta</groupId>
+        <artifactId>dicoogle-plugins</artifactId>
+        <version>2.5.0</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+	<repositories>
+
+		<repository>
+			<id>mi</id>
+			<url>http://bioinformatics.ua.pt/maven/content/repositories/mi</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	</repositories>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+
+
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<header>../../short-license.txt</header>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/package-info.java</exclude>
+					</excludes>
+
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom2</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>pt.ua.ieeta</groupId>
+			<artifactId>dicoogle-sdk</artifactId>
+			<version>${dicoogle-sdk.version}</version>
+
+		</dependency>
+		<dependency>
+			<groupId>metal.utils</groupId>
+			<artifactId>metal.utils.fileiterator</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://www.dcm4che.org/maven2/' }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+//    project group: 'org.dcm4che', name: 'dcm4che-all', version: '3.3.8', ext: 'pom'
+
+    compile "org.dcm4che:dcm4che-core:5.18.1"
+    compile "org.dcm4che:dcm4che-net:5.18.1"
+
+    compile "org.dcm4che:dcm4che-imageio:5.18.1"
+    runtime "org.dcm4che:dcm4che-imageio-rle:5.18.1"
+
+
+}
