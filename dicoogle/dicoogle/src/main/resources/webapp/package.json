@@ -1,0 +1,114 @@
+{
+  "name": "dicoogle-webapp",
+  "version": "1.3.1",
+  "private": true,
+  "description": "Dicoogle web application",
+  "author": "Universidade de Aveiro, DETI/IEETA, Bioinformatics Group (http://bioinformatics.ua.pt/)",
+  "homepage": "http://www.dicoogle.com",
+  "license": "GPL-3.0+",
+  "keywords": [
+    "dicoogle",
+    "webapp"
+  ],
+  "contributors": [
+    "Luís A. Bastião <bastiao@bmd-software.com>",
+    "Frederico Silva <fredericosilva@ua.pt>",
+    "Eduardo Pinho <eduardopinho@ua.pt>"
+  ],
+  "maintainers": [
+    "Luís A. Bastião <bastiao@bmd-software.com>",
+    "Eduardo Pinho <eduardopinho@ua.pt>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bioinformatics-ua/dicoogle"
+  },
+  "main": "js/app.js",
+  "files": [
+    "dist/bundle.min.js",
+    "dist/bundle.min.js.map",
+    "dist/bundle.min.css",
+    "dist/bundle.min.css.map",
+    "css/",
+    "fonts/",
+    "assets/",
+    "bootstrap/",
+    "lib/",
+    "index.html"
+  ],
+  "engines": {
+    "node": ">=10",
+    "npm": ">=5.0.0"
+  },
+  "dependencies": {
+    "@ungap/custom-elements-builtin": "^0.1.2",
+    "bootstrap": "^3.4.1",
+    "core-js": "^2.6.11",
+    "dicoogle-client": "^4.1.2",
+    "dicoogle-webcore": "file:../../../../../webcore",
+    "document-register-element": "^1.14.3",
+    "history": "^3.3.0",
+    "jquery": "^3.4.1",
+    "react": "^0.14.6",
+    "react-addons-update": "^0.14.8",
+    "react-autosuggest": "^9.4.3",
+    "react-bootstrap": "^0.29.4",
+    "react-bootstrap-table": "^1.4.6",
+    "react-dom": "^0.14.6",
+    "react-font-awesome": "https://github.com/tkurki/react-font-awesome/tarball/master",
+    "react-imageloader": "~2.0.0",
+    "react-router": "^3.2.5",
+    "react-router-bootstrap": "^0.20.1",
+    "react-select": "^v1.2.0",
+    "react-transition-group": "^2.9.0",
+    "reflux": "^0.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-react": "^7.18.3",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "prettier": "1.12.1",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "precommit": "lint-staged",
+    "build-debug": "webpack --config webpack.dev.js --progress",
+    "clean": "rimraf dist/* index.html",
+    "webpack": "webpack --config webpack.prod.js --progress"
+  },
+  "lint-staged": {
+    "js/*.{js,jsx}": [
+      "eslint --fix js",
+      "prettier --write js/**/*.{js,jsx}",
+      "git add"
+    ],
+    "*.{js}": [
+      "prettier --write *.{js}",
+      "git add"
+    ],
+    "sass/*.scss": [
+      "prettier --write sass/**/*.scss",
+      "git add"
+    ]
+  }
+}

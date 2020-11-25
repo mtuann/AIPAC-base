@@ -1,0 +1,49 @@
+{
+  "name": "dicoogle-webcore",
+  "version": "0.15.0",
+  "private": true,
+  "author": "Universidade de Aveiro, DETI/IEETA, Bioinformatics Group (http://bioinformatics.ua.pt/)",
+  "maintainers": [
+    "Eduardo Pinho <eduardopinho@ua.pt>"
+  ],
+  "contributors": [
+    "Eduardo Pinho <eduardopinho@ua.pt>",
+    "Luís Bastião Silva <bastiao@bmd-software.com>"
+  ],
+  "description": "Dicoogle Web Core for UI plugins",
+  "files": [
+    "src/*.js"
+  ],
+  "jsnext:main": "src/dicoogle-webcore.js",
+  "main": "src/dicoogle-webcore.js",
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "dicoogle"
+  ],
+  "scripts": {
+    "check": "eslint src"
+  },
+  "license": "GPL-3.0+",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-env": "^7.5.5",
+    "babelify": "^10.0.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "dicoogle-client": "^4.1.2",
+    "events": "^3.0.0"
+  }
+}
